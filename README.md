@@ -70,17 +70,6 @@ You can add images like:
 
 ---
 
-## 🤝 Contributing
-
-If you’d like to contribute:
-
-1. Fork the repository
-2. Create a new branch (`feature/your-feature`)
-3. Commit your changes
-4. Push to your fork and submit a Pull Request
-
----
-
 ## 🧑‍💻 Author
 
 **Priyadharshini Vijayakumar**
