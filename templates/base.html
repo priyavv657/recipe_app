@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Recipe Site{% endblock %}</title>
+
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="/">HANGRY's Recipes Clone</a></h1>
+        <nav>
+            <a href="/">Home</a> | 
+            <a href="/add">Add Recipe</a>
+            <form action="/search" method="get" style="display:inline;">
+                <input type="text" name="query" placeholder="Search for recipes...">
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for message in messages %}
+                <div class="flash">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 HANGRY's Recipes Clone. Made with ❤️ and Flask.</p>
+    </footer>
+</body>
+</html>

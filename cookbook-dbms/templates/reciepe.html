@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.title }} - Recipe View</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fff8f0;
+            padding: 30px;
+            color: #333;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2980b9;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .instructions {
+            text-align: left;
+            margin-top: 20px;
+            white-space: pre-line;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Search Bar -->
+        <form method="get" action="{{ url_for('dashboard') }}">
+            <input type="text" name="search" placeholder="Search recipes...">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Recipe Details -->
+        <h1>{{ recipe.title }}</h1>
+        <p><strong>By:</strong> {{ recipe.author }}</p>
+
+        {% if recipe.image %}
+            <img src="{{ recipe.image }}" alt="Recipe Image">
+        {% endif %}
+
+        <div class="instructions">{{ recipe.instructions }}</div>
+
+        <!-- Action Buttons -->
+        <div class="buttons">
+            <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+            <button onclick="window.print()">🖨 Print Recipe</button>
+        </div>
+    </div>
+</body>
+</html>

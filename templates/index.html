@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Recipe Site{% endblock %}
+
+{% block content %}
+    {% if query %}
+        <h2>Search Results for "{{ query }}"</h2>
+    {% else %}
+        <h2>All Recipes</h2>
+    {% endif %}
+    
+    <div class="recipe-list">
+        {% for recipe in recipes %}
+            <div class="recipe-card">
+                <a href="{{ url_for('recipe_detail', recipe_id=recipe[0]) }}">
+                    {% if recipe[3] %}
+                        <img src="{{ url_for('static', filename='images/' + recipe[3]) }}" alt="{{ recipe[1] }}">
+                    {% endif %}
+                    <h3>{{ recipe[1] }}</h3>
+                </a>
+                <p>{{ recipe[2] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

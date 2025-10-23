@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ recipe[1] }} - Recipe{% endblock %}
+
+{% block content %}
+    <div class="recipe-detail">
+        <h2>{{ recipe[1] }}</h2>
+        <p><strong>Author:</strong> {{ recipe[4] }}</p>
+        {% if recipe[3] %}
+            <img src="{{ url_for('static', filename='images/' + recipe[3]) }}" alt="{{ recipe[1] }}">
+        {% endif %}
+        <p>{{ recipe[2] }}</p>
+    </div>
+{% endblock %}

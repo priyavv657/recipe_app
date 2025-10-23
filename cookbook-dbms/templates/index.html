@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookbook Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cookbook DBMS</h1>
+
+        <h2>Login</h2>
+        <form method="POST" action="/login">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <h2>or Create an Account</h2>
+        <form method="POST" action="/signup">
+            <input type="text" name="username" placeholder="New Username" required>
+            <input type="password" name="password" placeholder="New Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>
